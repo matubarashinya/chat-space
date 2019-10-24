@@ -22,37 +22,37 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-## groups_usersテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :group
-- belongs_to :user
-## groupテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :group
-- belongs_to :user
 ## usersテーブル
-
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|email|string|null: false|
+|password|string|null: false|
+|username|string|null: false|
+### Association
+- has_many :group
+- has_many :message
 
+## groupテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|text||
+|text|text||
+|user_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- has_many :message
+
+## messageテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|tweet_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :group
 - belongs_to :user
-## messageテーブル
+
+# groups_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
