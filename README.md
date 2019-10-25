@@ -44,7 +44,7 @@ Things you may want to cover:
 - has many :groups_users
 - has many :users, through: :groups_users
 
-## messageテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|image|
