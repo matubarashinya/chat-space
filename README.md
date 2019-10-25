@@ -36,9 +36,7 @@ Things you may want to cover:
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text||
-|text|text||
-|user_id|integer|null: false, foreign_key: true|
+|name|string|null; false|
 ### Association
 - has_many :messages
 - has many :groups_users
