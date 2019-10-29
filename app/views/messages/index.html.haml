@@ -1,0 +1,40 @@
+.chat__side
+  .side-header
+    .side-header__box
+      %p.side-header__box--user-name
+        Test-user
+      %ul.side-header__box--menu
+        = fa_icon "edit"
+        = fa_icon "cog"
+  .groups
+    .group
+      %p.group__group--name
+        Group name
+      %p.group__lastest--massage
+        まだメッセージはありません
+    .group
+      %p.group__group--name
+        Group name
+      %p.group__lastest--massage
+        まだメッセージはありません
+.chat-main
+  .main-header
+    .main-header__left-box
+      %h2.main-header__left-box--current-group
+        Group name
+      %ul.main-header__left-box--member-list
+        Member :
+      %li.main-header__left-box--member-list-member
+        加藤さん、佐藤さん
+    .main-header__edit-btn
+      Edit
+
+  .massages
+  
+  .new-message
+    .new-message__post
+      .new-message__post--input
+        %input.input{placeholder: "type a message"}
+          %label.label{for: "upload-icon"}
+            = fa_icon "image"
+        %input.send{type: "submit", value: "Send"}
