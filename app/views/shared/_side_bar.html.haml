@@ -1,0 +1,24 @@
+.chat__side
+  .side-header
+    .side-header__box
+      %p.side-header__box__user-name
+        Test-user
+      %ul.side-header__box__menu
+        = link_to new_group_path do
+          = fa_icon "pencil-square-o", class: 'icon'
+        = link_to edit_user_path(current_user) do
+          = fa_icon 'cog', class: 'icon'
+
+      
+          
+  .groups
+    .group
+      %p.group__group--name
+        Group name
+      %p.group__lastest--massage
+        まだメッセージはありません
+    .group
+      %p.group__group--name
+        Group name
+      %p.group__lastest--massage
+        まだメッセージはありません
