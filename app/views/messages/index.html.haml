@@ -19,22 +19,26 @@
         まだメッセージはありません
 .chat-main
   .main-header
-    .main-header__left-box
-      %h2.main-header__left-box--current-group
-        Group name
+    .main-header__left-box 
+      %h2.main-header__left-box--current-group 
+        = @group.name
+        -# ＠groupはmessages_controller.rbの@group = Group.find(params[:group_id])とつながっている
       %ul.main-header__left-box--member-list
         Member :
-      %li.main-header__left-box--member-list-member
-        加藤さん、佐藤さん
+        -# グループの中からメンバーを繰り返し取り出す
+        %li.main-header__left-box--member-list-member
+          - @group.users.each do |user|
+            = user.name
     .main-header__edit-btn
-      Edit
+      = link_to "Edit", edit_group_path(@group), class: "edit-edit"
 
-  .massages
-  
+  .messages
+    = render @messages
   .new-message
-    .new-message__post
+    = form_for [@group, @message] do |f|
       .new-message__post--input
-        %input.input{placeholder: "type a message"}
-          %label.label{for: "upload-icon"}
-            = fa_icon "image"
-        %input.send{type: "submit", value: "Send"}
+        = f.text_field :content, class: 'new-message__post--input__input', placeholder: 'type a message'
+        = f.label :image, class: 'new-message__post--input__label' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'new-message__post--input__file'
+      = f.submit 'Send', class: 'new-message__send'

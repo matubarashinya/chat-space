@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
- }
+}
  .chat__side{
   width: 300px;
   color: #ffffff;
@@ -16,9 +16,16 @@
       justify-content: space-between;
       width: 100%;
       font-weight: bold;
-      &--user-menu{
+      &__user-name{
         display: flex;
       }
+      &__menu {
+        a {
+        color: white;
+        text-decoration: none;
+        }
+      }
+
     }
   }
   .groups{
@@ -28,14 +35,21 @@
     overflow: scroll;
     .group{
       margin-bottom: 40px;
-      &__group--name{
-        font-size: 15px;
-        margin-bottom: 5px;
-      }
-      &__lastest--massage{
-        font-size: 11px;
-        margin-bottom: 5px;
-      }
+      a {
+        // aタグに対して⇩この要素をつけてあげる。
+        // aタグ、デフォルトで下線を持ってる
+        text-decoration: none;
+        .group__name{
+          font-size: 15px;
+          margin-bottom: 5px;
+          color: white;
+        }
+        .group__message{
+          font-size: 11px;
+          margin-bottom: 5px;
+          color: white;
+        }
+     }
     }
   }
  }
@@ -45,6 +59,7 @@
   .main-header{
     height: 100px;
     padding: 0 40px;
+    list-style: none;
     display: flex;
     justify-content: space-between;
     border-bottom: solid 1px #eee;
@@ -66,6 +81,10 @@
         }
       }
     }
+  .edit-edit{
+    text-decoration: none;
+    color: #38aef0;
+  }
     &__edit-btn{
       height: 40px;
       line-height: 40px;
@@ -74,47 +93,79 @@
       border: solid 1px #38aef0;
       position: absolute;
       right: 40px;
-      color: #38aef0;
+      
     }
   }
-  .massages{
-    height: calc(100vh - 190px);
-    padding: 46px 40px;
-    background-color: #fafafa;
-    overflow: scroll;
+  .messages{ 
+   background-color: #FAFAFA;
+   box-sizing: border-box;
+   padding: 46px 40px 0;
+   height: calc(100vh - 100px - 90px);
+   overflow: scroll; /*スクロールした時に要素をボックスからはみ出させない*/
   }
- }
- .new-message{
-  height: 90px;
-  padding: 20px 40px;
-  background-color: #ddd;
-  &__post--input{
-    position: relative;
-    width: 100%;
+  .message {
+  .upper-message {
     display: flex;
-    .input{
-      height: 50px;
-      width: 100%;
-      padding: 0 40px 0 10px;
+    &__user-name {
       color: #434a54;
-      border-style: none;
+      font-size: 16px;
+      font-weight: bold;
     }
-    .label{
+    &__date {
+      color: #999;
+      font-size: 12px;
+      padding-left: 10px;
+    }
+  }
+      .lower-message {
+        margin-top: 10px;
+        &__content {
+          color: #434a54;
+          font-size: 14px;
+          margin-bottom: 40px;
+        } 
+      }
+}
+  .new-message{
+    height: 90px;
+    padding: 20px 40px;
+    background-color: #ddd;
+    display: flex;
+     &__post--input{
+       position: relative;
+       width: 80%;
+     &__input{
+       height: 50px;
+       width: 100%;
+       padding: 0 40px 0 10px;
+       color: #434a54;
+       border-style: none;
+    }
+     &__label{
       font-size: 1.3rem;
       position: absolute;
       top: 10px;
       right: 10px;
       cursor: pointer;
-      margin-right: 130px;
+    }
+    &__file {
+      display: none;
     }
   }
-  input.send{
-    width: 100px;
-    height: 50px;
-    padding: 0 30px;
-    margin-left: 15px;
-    background-color: #38aef0;
-    color: white;
-    cursor: pointer;
+    &__send{
+      width: 100px;
+      height: 50px;
+      padding: 0 30px;
+      margin-left: 15px;
+      background-color: #38aef0;
+      color: white;
+      cursor: pointer;
+     
   }
  }
+
+ .new_message {
+  display: flex;
+  width: 100%;
+}
+}
