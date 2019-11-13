@@ -1,6 +1,5 @@
-json.id @messsages.id
-json.content @messsages.content
-json.image @messsages.image
-json.created_at @messsages.created_at
-json.name @user.name
-# データベースの中にあるカラムと残りの必要なuser,nameなど記載する
+json.id @message.id
+json.content @message.content
+json.image @message.image.url
+json.created_at @message.created_at
+json.user_name @message.user.name
