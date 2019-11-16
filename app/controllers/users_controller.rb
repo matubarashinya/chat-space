@@ -1,5 +1,17 @@
 class UsersController < ApplicationController
 
+  def index
+    # ここでインクリメンタルサーチのルーティングを設定
+    return nil if params[:keyword] == ""
+    @users = User.where('name LIKE ?', "%#{params[:keyword]}%" ).where.not(id: current_user.id).limit(10)
+    # whereメソッドを使用し、入力された値を含むかつ、ログインしているユーザーのidは除外するという条件で取得しています。
+    respond_to do |format|
+      format.html
+      format.json
+      # htmlとjsonで条件分岐させます。
+    end
+  end
+
   def edit
   end
 

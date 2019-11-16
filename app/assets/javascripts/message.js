@@ -24,11 +24,11 @@ $(function(){
   $('#new_message').on('submit', function(e){
     // new_messageがクラス
     e.preventDefault();
-  
     var formData = new FormData(this);
     // フォームのデータの送信に使用することができる
     var url = $(this).attr('action')
     // console.log(this)このコードでログが記録されているか見る
+    console.log(this)
     $.ajax({
       //サーバに送信するリクエストの設定
       url: url,
@@ -44,7 +44,6 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-     
       // data: formDataの値がここに入る
       var html = buildHTML(data);
       $('.messages').append(html);
