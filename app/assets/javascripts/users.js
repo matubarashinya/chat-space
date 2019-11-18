@@ -56,7 +56,6 @@ $(function() {
       });
   });
   $("#user-search-result").on("click", ".user-search-add", function() {
-    console.log
     const userName = $(this).attr("data-user-name");
     // data-user-nameをthisとして変更して、userNameに代入している
     // constで値書き換えを禁止下変数を宣言する方法
