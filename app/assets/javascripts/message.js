@@ -63,6 +63,7 @@ $(function(){
   
     
     var reloadMessages = function() {
+      if (window.location.href.match(/\/groups\/\d+\/messages/)){
       //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
       var last_message_id = $(".message:last").data("id");
     
@@ -88,7 +89,7 @@ $(function(){
       .fail(function() {
         alert('自動更新に失敗しました');//ダメだったらアラートを出す
       });
-  
+    };
   }
     setInterval(reloadMessages, 7000);//7000ミリ秒ごとにreloadMessagesという関数を実行し自動更新を行う。
 
